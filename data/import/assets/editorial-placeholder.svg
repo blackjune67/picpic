@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">PicPic editorial placeholder</title>
+  <desc id="desc">A locally generated warm paper and red editorial placeholder.</desc>
+  <rect width="1200" height="800" fill="#f4efe7" />
+  <path d="M0 620h1200v180H0z" fill="#1c1b19" />
+  <circle cx="230" cy="260" r="130" fill="#b6322c" />
+  <path d="M570 180h400v42H570zM570 260h270v42H570z" fill="#1c1b19" />
+  <text x="570" y="420" fill="#1c1b19" font-family="Arial, sans-serif" font-size="72" font-weight="700">PICPIC</text>
+  <text x="570" y="485" fill="#b6322c" font-family="Arial, sans-serif" font-size="30" letter-spacing="5">EDITORIAL DEMO</text>
+</svg>

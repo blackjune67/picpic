@@ -1,0 +1,46 @@
+{
+  "videos": [
+    {
+      "videoId": "PicPic00002",
+      "metadata": {
+        "title": "Fixture video two",
+        "publishedAt": "2026-05-01T00:00:00.000Z",
+        "duration": "PT7M",
+        "privacyStatus": "public",
+        "uploadStatus": "processed",
+        "liveBroadcastContent": "none",
+        "availability": "available",
+        "etag": "fixture-etag-2",
+        "fetchedAt": "2026-05-01T00:00:00.000Z"
+      }
+    },
+    {
+      "videoId": "PicPic00001",
+      "metadata": {
+        "title": "Fixture video one",
+        "publishedAt": "2026-05-01T00:00:00.000Z",
+        "duration": "PT5M",
+        "privacyStatus": "public",
+        "uploadStatus": "processed",
+        "liveBroadcastContent": "none",
+        "availability": "available",
+        "etag": "fixture-etag-1",
+        "fetchedAt": "2026-05-01T00:00:00.000Z"
+      }
+    },
+    {
+      "videoId": "PicPic00003",
+      "metadata": {
+        "title": "Fixture video three",
+        "publishedAt": "2026-07-01T00:00:00.000Z",
+        "duration": "PT4M",
+        "privacyStatus": "public",
+        "uploadStatus": "processed",
+        "liveBroadcastContent": "none",
+        "availability": "available",
+        "etag": "fixture-etag-3",
+        "fetchedAt": "2026-07-01T00:00:00.000Z"
+      }
+    }
+  ]
+}
