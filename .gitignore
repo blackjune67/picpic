@@ -120,3 +120,9 @@ out/
 *.vsix
 .codegraph
 .omo
+
+# Local test and agent-tooling artifacts
+test-results/
+playwright-report/
+blob-report/
+.react-doctor-report.json
