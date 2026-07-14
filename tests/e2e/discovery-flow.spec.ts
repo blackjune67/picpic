@@ -4,8 +4,8 @@ test("search, channel sheet, and restaurant detail remain usable", async ({ page
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto("/");
   await page.getByRole("textbox", { name: "식당이나 동네 검색" }).fill("대림");
-  await expect(page.getByRole("heading", { name: "대림국수" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "할매곱창" })).not.toBeVisible();
+  await expect(page.getByRole("region", { name: "맛집 목록" }).getByRole("heading", { name: "대림국수" })).toBeVisible();
+  await expect(page.getByRole("region", { name: "맛집 목록" }).getByRole("heading", { name: "할매곱창" })).not.toBeVisible();
   await page.getByRole("button", { name: "채널 선택 열기" }).click();
   await expect(page.getByRole("dialog", { name: "채널 선택" })).toBeVisible();
   await page.getByRole("button", { name: "적용하기" }).click();
