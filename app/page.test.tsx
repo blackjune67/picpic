@@ -9,6 +9,6 @@ describe("Home discovery smoke", () => {
     const catalog = await fixtureCatalogRepository.list();
     render(<DiscoveryClient catalog={catalog} />);
     expect(screen.getByRole("button", { name: /^전체$/ })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "대림국수" })).toBeInTheDocument();
+    expect(screen.getAllByRole("heading", { name: "대림국수" })).toHaveLength(2);
   });
 });

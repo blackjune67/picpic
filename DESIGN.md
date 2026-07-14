@@ -2,100 +2,63 @@
 
 ## 0. Research Log
 
-- Embedded reference: shortlisted Notion, Wired, and Claude for paper-like editorial systems; picked `minimalist-skill` + Notion as the structural source, then adapted the reference image's red accent and Korean mobile receipt rhythm for PicPic.
-- Provided reference: inspected `.omo/drafts/assets/picpic-multichannel-mobile-reference.png` at full resolution; it establishes the three states, 44px controls, centered mobile shell, channel drawer, provenance chips, and sticky NAVER action.
-- Superseded draft: a generated extraction image was inspected, but it is not a product reference; the supplied neutral 3-screen reference remains authoritative because the product must stay coherent when channels beyond 또간집 are added.
-- UI skills CLI: attempted `npx ui-skills categories`; unavailable because the package was not cached and network access was restricted.
-- Skipped lazyweb and additional image lanes: the supplied reference and generated extraction are sufficient for this product surface; no external live site is being cloned.
+- Existing-surface audit: the previous mint card system was functional but visually even; the hero, list, and detail screens had the same visual weight.
+- `frontend-design` direction: food discovery should feel like a contact sheet from a late-night food walk — tactile paper, ink-black utility surfaces, warm photo frames, and short evidence labels.
+- UI skills CLI: categories were available, but the installed registry did not expose the requested `visual` or `craft` slugs; the existing product contract and this system remain authoritative.
+- Chosen direction: night-market editorial. The single risk is an ink-black filter slab that behaves like a physical index card and gives the calm food photography a strong frame.
 
 ## 1. Atmosphere & Identity
 
-PicPic feels like a well-kept paper guide that happens to know where every filmed meal came from. The signature is a warm receipt-like canvas, charcoal editorial type, and one confident tomato-red action color that makes provenance feel trustworthy rather than promotional.
+PicPic is a visual field guide for restaurants discovered in videos. It should feel collected, not algorithmic: the restaurant image is the hook, the note is the reason to care, and the source chip is the proof. The interface is intentionally asymmetric: a large editorial hero, a dark index filter, and a split preview on wide screens.
 
 ## 2. Color
 
-| Role | Token | Light | Dark-independent usage |
+| Role | Token | Value | Use |
 | --- | --- | --- | --- |
-| Paper canvas | `--surface-paper` | `#f7f4ee` | Page background |
-| Card surface | `--surface-card` | `#fffdf9` | Rows, sheets, controls |
-| Muted surface | `--surface-muted` | `#eee9df` | Empty states and soft fields |
-| Primary ink | `--ink-primary` | `#272522` | Headings and body |
-| Secondary ink | `--ink-secondary` | `#68635d` | Place metadata and hints |
-| Tertiary ink | `--ink-tertiary` | `#908a82` | Disabled and quiet metadata |
-| Accent red | `--accent-red` | `#b7352e` | Active tabs, primary CTA, verified emphasis |
-| Accent red dark | `--accent-red-dark` | `#8f2823` | Pressed and hover states |
-| Accent red soft | `--accent-red-soft` | `#f3dfd8` | Selection and subtle provenance background |
-| Default line | `--line-default` | `#d8d0c5` | Dividers and control outlines |
-| Strong line | `--line-strong` | `#b9afa2` | Focused and selected controls |
-| Focus ring | `--focus-ring` | `#9c3029` | Keyboard focus |
+| Paper | `--surface-paper` | `#f3efe7` | page canvas |
+| Reading card | `--surface-card` | `#fffdf8` | selected rows, preview |
+| Ink slab | `--surface-ink` | `#191b24` | filter panel, wordmark contrast |
+| Raised neutral | `--surface-raised` | `#ebe5d9` | chips and controls |
+| Note yellow | `--surface-note` | `#f7c56b` | editorial note and count stamp |
+| Primary ink | `--ink-primary` | `#191b24` | headings and copy |
+| Secondary ink | `--ink-secondary` | `#686873` | supporting copy |
+| Tertiary ink | `--ink-tertiary` | `#62636d` | small metadata with readable contrast |
+| Tomato action | `--accent-red` | `#b74337` | active state and CTA |
+| Tomato pressed | `--accent-red-dark` | `#8f2e2b` | hover/pressed action |
+| Tomato wash | `--accent-red-soft` | `#f2d0c5` | selection support |
+| Default line | `--line-default` | `#d8d1c4` | list structure |
+| Focus | `--focus-ring` | `#226b59` | keyboard focus |
 
-Accent is semantic and sparse. Every channel uses the same neutral control treatment; red means the current selection or primary action, never a channel identity. No gradients, dark mode swap, channel logo, copied program branding, or channel-name conditional styling.
+Do not introduce channel-specific colors. Tomato means action or selection, never channel identity.
 
 ## 3. Typography
 
-| Level | Size | Weight | Line height | Usage |
-| --- | --- | --- | --- | --- |
-| Display | `clamp(32px, 8vw, 44px)` | 700 | 1.05 | PicPic wordmark and restaurant title |
-| H1 | 28px | 700 | 1.15 | Screen heading |
-| H2 | 22px | 700 | 1.25 | Row and section title |
-| Body | 16px | 400 | 1.55 | Description and address |
-| Body small | 14px | 400 | 1.45 | Place metadata and source names |
-| Caption | 12px | 600 | 1.35 | Chips, episode markers, counts |
-
-The UI uses Geist Sans for controls and metadata, with a system Korean serif stack for editorial titles and the wordmark. Headings use `text-wrap: balance`; body copy uses `text-wrap: pretty`.
+The UI uses a Korean-friendly system sans for controls and metadata. Editorial titles use `--font-display` with heavy weight and tight tracking. The display scale is 42–86px for hero/detail titles, 21–32px for item titles, 13–15px for body, and 9–11px for evidence labels. Uppercase labels use `.eyebrow` with 0.14em tracking.
 
 ## 4. Spacing & Layout
 
-Base unit is 4px. The mobile shell is `--shell-max-width: 560px`, centered on wide screens with `--page-gutter` side padding. Core spacing tokens are 4, 8, 12, 16, 20, 24, 32, and 40px. Interactive controls use `--control-height: 48px`; compact chips remain at least 44px tall when interactive. Main list rows use 16px vertical rhythm with 1px dividers.
-
-Breakpoints: 320px stress, 375px primary mobile, 640px tablet transition, 768px tablet, and 1280px centered desktop observation. No horizontal scrolling is permitted on the page shell.
+The spacing base is 4px. Mobile gutters are 16px, standard shell gutters are 20px, and wide layouts use a max width of 1220px. Touch targets are at least 44px. Discovery is a 1-column feed below 760px and a list/preview split above it. Detail is a single reading column on mobile and a media/copy split on wide screens.
 
 ## 5. Components
 
-### Masthead
-- **Structure:** wordmark, short descriptor, menu button.
-- **Variants:** discovery and detail back navigation.
-- **States:** default, hover, active, focus.
-- **Accessibility:** named menu/back buttons, visible focus.
-
-### SourceChip
-- **Structure:** compact label with source/channel and episode number.
-- **Variants:** verified source, neutral source, unavailable source; all channels share the same visual family.
-- **States:** default and unavailable.
-- **Accessibility:** text remains meaningful without color.
-
-### RestaurantRow
-- **Structure:** image, title, location, one-line editorial note, source chips, chevron.
-- **Variants:** result, loading skeleton, unavailable image fallback.
-- **States:** default, hover, active, focus, loading, empty, error.
-- **Accessibility:** entire row is a link; image has descriptive alt text; source chips are supplemental text.
-
-### FilterBar
-- **Structure:** neutral horizontal channel controls, labeled search input, region chips, result count.
-- **Variants:** active channel, filtered, no results.
-- **States:** default, focus, loading, empty, error.
-- **Accessibility:** native buttons and input label; active state is text and `aria-pressed`.
-
-### ChannelSheet
-- **Structure:** modal dialog, search input, checkbox list, apply action.
-- **Variants:** closed and open.
-- **States:** open, focus-trapped, empty, error.
-- **Accessibility:** `role=dialog`, labelled heading, Escape close, keyboard focus return.
-
-### PrimaryMapAction
-- **Structure:** sticky full-width button at the detail bottom.
-- **Variants:** handoff and copy fallback.
-- **States:** default, pressed, focus, blocked fallback.
-- **Accessibility:** explicit action wording never claims a save; fallback copy remains available.
+- `SiteHeader`: compact wordmark, one-line context, menu action.
+- `DiscoveryHero`: editorial thesis, count stamp, and single paragraph of orientation.
+- `FilterPanel`: dark index slab; channel pills, search field, and region pills.
+- `RestaurantRow`: image-led contact-sheet row, district label, editorial note, source chips, detail link.
+- `PreviewCard`: sticky wide-screen reading card with large image and provenance count.
+- `ChannelSheet`: mobile bottom sheet with focus return, Escape close, counts, and apply action.
+- `DetailHero`: image, location, address action, editorial note, and source metadata.
+- `SourceList`: ordered provenance links using real episode data.
+- `DetailAction`: mobile-safe sticky map action with address-copy recovery.
 
 ## 6. Motion & Interaction
 
-Micro interactions use 120ms ease-out; sheets use 240ms ease-in-out; route-level emphasis uses 400ms cubic-bezier(0.16, 1, 0.3, 1). Animate only transform and opacity. Buttons use a subtle `scale(0.96)` pressed state. Reduced-motion users receive no non-essential movement.
+Motion is limited to transform, opacity, and background-color. Rows nudge 4px on hover to reinforce that they are selectable. Buttons compress to 0.97 on press. The sheet is a single bottom-up interaction; no decorative looping animation is used. Reduced-motion users receive no non-essential movement.
 
 ## 7. Depth & Surface
 
-The system uses mixed depth: paper and card tonal separation, thin warm dividers for list structure, and one low-opacity two-layer sheet shadow. No heavy card shadows, gradients, glass effects, or nested card stacks.
+Use paper gradients for atmosphere, a warm tinted shadow for raised cards, and a dark slab for the filter. Images receive a bottom readability gradient and a small frame label. Avoid equal-radius card grids and avoid adding a second saturated action color.
 
 ## 8. Accessibility Constraints & Accepted Debt
 
-WCAG 2.2 AA target: 4.5:1 body contrast and 3:1 large-text contrast, visible keyboard focus, native keyboard interaction, 44px minimum interactive targets, meaningful alt text, Korean-friendly wrapping, and reduced motion. No accepted accessibility debt is carried for the MVP.
+WCAG 2.2 AA target: native buttons/links/inputs, visible focus, 44px targets, meaningful alt text, keyboard-closeable sheet, Korean-friendly wrapping, reduced motion, and 4.5:1 body contrast. No accepted accessibility debt.
